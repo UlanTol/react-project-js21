@@ -1,3 +1,18 @@
 {
-  "products": []
+  "products": [
+    {
+      "title": "Something",
+      "price": "22",
+      "description": "Something",
+      "image": "https://thefinanser.com/wp-content/uploads/2019/10/Product.png",
+      "id": 6
+    },
+    {
+      "title": "some",
+      "price": "222",
+      "description": "some",
+      "image": "url",
+      "id": 7
+    }
+  ]
 }
