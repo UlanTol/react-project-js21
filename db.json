@@ -8,11 +8,46 @@
       "id": 6
     },
     {
-      "title": "some",
-      "price": "222",
-      "description": "some",
-      "image": "url",
+      "title": "w",
+      "price": "22",
+      "description": "some description",
+      "image": "www.image.png",
       "id": 7
+    },
+    {
+      "title": "main title",
+      "price": "1212",
+      "description": "some description",
+      "image": "www.image.png",
+      "id": 8
+    },
+    {
+      "title": "main title",
+      "price": "221",
+      "description": "some description",
+      "image": "www.image.png",
+      "id": 9
+    },
+    {
+      "title": "main title",
+      "price": "120$",
+      "description": "some description",
+      "image": "www.image.png",
+      "id": 10
+    },
+    {
+      "title": "main title",
+      "price": "2",
+      "description": "some description",
+      "image": "www.image.png",
+      "id": 11
+    },
+    {
+      "title": "main title",
+      "price": "1111",
+      "description": "some description",
+      "image": "www.image.png",
+      "id": 12
     }
   ]
 }

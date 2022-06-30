@@ -12,13 +12,15 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { useNavigate } from "react-router-dom";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -90,7 +92,11 @@ const Header = () => {
               <MenuItem
                 onClick={() => {
                   handleCloseNavMenu();
-                  navigate("/products");
+                  navigate(
+                    location.pathname === "/products"
+                      ? `/products${window.location.search}`
+                      : "/products"
+                  );
                 }}>
                 <Typography textAlign="center">Products</Typography>
               </MenuItem>
@@ -125,7 +131,11 @@ const Header = () => {
             <Button
               onClick={() => {
                 handleCloseNavMenu();
-                navigate("/products");
+                navigate(
+                  location.pathname === "/products"
+                    ? `/products${window.location.search}`
+                    : "/products"
+                );
               }}
               sx={{ my: 2, color: "white", display: "block" }}>
               Products
@@ -140,7 +150,14 @@ const Header = () => {
             </Button>
             {/* ))} */}
           </Box>
-
+          <Box>
+            <IconButton
+              onClick={() => navigate("/basket")}
+              color="primary"
+              aria-label="add to shopping cart">
+              <AddShoppingCartIcon style={{ color: "white" }} />
+            </IconButton>
+          </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

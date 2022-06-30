@@ -7,10 +7,10 @@ const AddProduct = () => {
   const { createProduct } = useContext(productsContext);
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+  const [title, setTitle] = useState("main title");
+  const [price, setPrice] = useState("120$");
+  const [description, setDescription] = useState("some description");
+  const [image, setImage] = useState("www.image.png");
 
   function handleSave() {
     const newProduct = {
@@ -19,6 +19,14 @@ const AddProduct = () => {
       description,
       image,
     };
+
+    const newProduct2 = {
+      title: title,
+      price: price,
+      description: description,
+      image: image,
+    };
+
     if (!title.trim() || !description.trim("") || !image.trim() || !price) {
       alert("Fill the blanks");
     } else {
