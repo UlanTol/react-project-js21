@@ -54,6 +54,7 @@ const ProductsList = () => {
           }}
           valueLabelDisplay="auto"
           // getAriaValueText={valuetext}
+          min={0}
           max={100000}
           step={1000}
         />

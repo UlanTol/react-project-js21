@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,7 +14,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useLocation, useNavigate } from "react-router-dom";
+import Badge from "@mui/material/Badge";
+import { cartContext } from "../../contexts/basketContext";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -21,6 +23,11 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { getCart, count } = React.useContext(cartContext);
+  React.useEffect(() => {
+    getCart();
+  }, []);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -155,7 +162,9 @@ const Header = () => {
               onClick={() => navigate("/basket")}
               color="primary"
               aria-label="add to shopping cart">
-              <AddShoppingCartIcon style={{ color: "white" }} />
+              <Badge badgeContent={count} color="error">
+                <AddShoppingCartIcon style={{ color: "white" }} />
+              </Badge>
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 0 }}>

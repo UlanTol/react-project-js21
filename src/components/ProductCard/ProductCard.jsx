@@ -14,7 +14,11 @@ import { cartContext } from "../../contexts/basketContext";
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
   const { deleteProduct } = React.useContext(productsContext);
-  const { addToBasket } = React.useContext(cartContext);
+  const { addToCart, checkProductInCart } = React.useContext(cartContext);
+  const [productState, setProductState] = React.useState(
+    checkProductInCart(item.id)
+  );
+
   return (
     <Card sx={{ maxWidth: 345, margin: "20px" }}>
       <CardMedia
@@ -41,8 +45,15 @@ export default function ProductCard({ item }) {
         <Button size="small" onClick={() => deleteProduct(item.id)}>
           Delete
         </Button>
-        <IconButton>
-          <AddShoppingCartIcon onClick={() => addToBasket(item)} />
+        <IconButton
+          onClick={() => {
+            addToCart(item);
+            setProductState(checkProductInCart(item.id));
+          }}>
+          <AddShoppingCartIcon
+            color={productState ? "secondary" : "primary"}
+            onClick={() => addToCart(item)}
+          />
         </IconButton>
       </CardActions>
     </Card>
